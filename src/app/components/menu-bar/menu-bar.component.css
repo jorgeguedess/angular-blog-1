@@ -27,7 +27,9 @@
   transition: 0.3s;
 }
 
-.container__menu-bar > ul > li > a:hover {
+.container__menu-bar > ul > li > a:hover,
+.container__menu-bar > ul > li > a:focus {
+  outline: 0;
   opacity: 0.7;
 }
 

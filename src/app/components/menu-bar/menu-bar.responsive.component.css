@@ -7,7 +7,8 @@
     width: fit-content;
     margin-right: 1.25rem;
   }
-  .container__menu-bar > ul > li > a:hover::before {
+  .container__menu-bar > ul > li > a:hover::before,
+  .container__menu-bar > ul > li > a:focus::before {
     width: 100%;
     height: 0.125rem;
     background: #ec1d24;
