@@ -1,4 +1,4 @@
-.container__articles{
+.container__articles {
   margin-top: 30px;
 
   display: flex;
@@ -6,4 +6,6 @@
   justify-content: center;
 }
 
-
+.articles__others > *:first-child {
+  display: none;
+}
