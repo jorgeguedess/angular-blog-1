@@ -1,7 +1,8 @@
 .container__articles {
-  margin-top: 30px;
+  margin-top: 1.875rem;
 
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
   gap: 2rem;
@@ -12,12 +13,12 @@
 
 .articles__main {
   flex: 60;
-  max-width: 500px;
+  max-width: 31.25rem;
 }
 
 .articles__others {
   flex: 40;
-  max-width: 300px;
+  max-width: 18.75rem;
 
   display: flex;
   flex-direction: column;

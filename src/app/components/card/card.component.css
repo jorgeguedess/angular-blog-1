@@ -8,12 +8,12 @@
 }
 
 .card__title > h1 {
-  margin-top: 15px;
-  font-size: 20px;
+  margin-top: 1rem;
+  font-size: 1.25rem;
 }
 
 .card__description {
-  margin-top: 20px;
+  margin-top: 1.25rem;
 }
 
 .card__description > p > a {
