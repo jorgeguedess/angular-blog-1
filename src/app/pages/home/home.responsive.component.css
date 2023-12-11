@@ -1,0 +1,17 @@
+@media (min-width: 720px) {
+  .container__articles {
+    max-width: 60%;
+  }
+  .articles__main {
+    max-width: 31.25rem;
+  }
+  .articles__others {
+    max-width: 18.75rem;
+  }
+}
+
+@media (min-width: 450px) {
+  .container__articles {
+    flex-direction: row;
+  }
+}

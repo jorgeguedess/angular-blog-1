@@ -2,23 +2,22 @@
   margin-top: 1.875rem;
 
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   gap: 2rem;
+
   padding: 1.25rem;
-  max-width: 60%;
   margin-inline: auto;
 }
 
 .articles__main {
+  width: 100%;
   flex: 60;
-  max-width: 31.25rem;
 }
 
 .articles__others {
+  width: 100%;
   flex: 40;
-  max-width: 18.75rem;
 
   display: flex;
   flex-direction: column;
