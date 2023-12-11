@@ -2,12 +2,14 @@
   width: 100%;
   height: 100vh;
 
-  margin-top: 1.25rem;
+  margin-top: 2.5rem;
 
   display: flex;
   flex-direction: column;
 
   align-items: center;
+  max-width: 31.25rem;
+  margin-inline: auto;
 }
 
 .content__cover > img {
@@ -16,6 +18,10 @@
   width: 31.25rem;
   min-width: 31.25rem;
   height: 18.75rem;
+}
+
+.content__title {
+  margin-top: 1rem;
 }
 
 .content__description {
