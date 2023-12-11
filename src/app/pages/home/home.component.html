@@ -2,22 +2,25 @@
 
 <div class="container__articles">
   <div class="articles__main" *ngIf="marvelData[0] as data">
-    <app-big-card
+    <app-card
       [Id]="+data.id"
       photoCover="{{ data.thumbnail.path + '.' + data.thumbnail.extension }}"
       alt="{{ data.title }}"
       cardTitle="{{ data.title }}"
       cardDescription="{{ data.description }}"
     >
-    </app-big-card>
+    </app-card>
   </div>
   <div class="articles__others">
-    <app-small-card
-      *ngFor="let data of marvelData"
-      [Id]="+data.id"
-      cardTitle="{{ data.title }}"
-      photoCover="{{ data.thumbnail.path + '.' + data.thumbnail.extension }}"
-    >
-    </app-small-card>
+    <div *ngFor="let data of marvelData">
+      <app-card
+        [Id]="+data.id"
+        alt="{{ data.title }}"
+        cardTitle="{{ data.title }}"
+        photoCover="{{ data.thumbnail.path + '.' + data.thumbnail.extension }}"
+      >
+      </app-card>
+      <hr />
+    </div>
   </div>
 </div>
