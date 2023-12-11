@@ -1,36 +1,51 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {dataFake} from '../../data/dataFake'
+import { MarvelService } from 'src/app/services/marvel.service';
+import { INewsMarvel } from 'src/types/INews';
 
 @Component({
   selector: 'app-content',
   templateUrl: './content.component.html',
-  styleUrls: ['./content.component.css']
+  styleUrls: ['./content.component.css'],
 })
 export class ContentComponent implements OnInit {
-  photoCover:string = ""
-  contentTitle:string = ""
-  contentDescription:string = ""
-  private id:string | null = "0"
+  photoCover: string = '';
+  contentTitle: string = '';
+  contentDescription: string = '';
+  marvelData: INewsMarvel | null = null; // Inicializado como null
+
+  private id: number = 0;
 
   constructor(
-    private route:ActivatedRoute
-  ) { }
+    private marvelService: MarvelService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe( value =>
-     this.id = value.get("id")
-    )
-
-    this.setValuesToComponent(this.id)
+    this.route.paramMap.subscribe((value) => {
+      this.id = +value.get('id')!;
+      this.getNewDetailAPI(this.id);
+    });
   }
 
-  setValuesToComponent(id:string | null){
-    const result = dataFake.filter(article => article.id == id)[0]
+  getNewDetailAPI(id: number) {
+    this.marvelService.getNewDetail(id).subscribe((data) => {
+      this.marvelData = data.data.results[0];
+      console.log(this.marvelData);
 
-    this.contentTitle = result.title
-    this.contentDescription = result.description
-    this.photoCover = result.photoCover
+      this.setValuesToComponent();
+    });
   }
 
+  setValuesToComponent() {
+    if (!this.marvelData) {
+      return;
+    }
+
+    const { title, description, thumbnail } = this.marvelData;
+
+    this.contentTitle = title;
+    this.contentDescription = description;
+    this.photoCover = `${thumbnail.path}.${thumbnail.extension}`;
+  }
 }
